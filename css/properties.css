@@ -1,0 +1,579 @@
+/* ===== Properties Page Styles ===== */
+
+/* ===== Hero Section ===== */
+.properties-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 120px 0 60px;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.properties-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(30px, -30px) rotate(180deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.properties-hero .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.properties-hero .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+/* ===== Search and Filters ===== */
+.search-filters {
+    background: var(--white);
+    padding: 2rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+}
+
+.search-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input-group {
+    flex: 1;
+    position: relative;
+}
+
+.search-input-group i {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.search-input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-input-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.filter-section {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: var(--white);
+    cursor: pointer;
+}
+
+.filter-group select:hover,
+.filter-group input:hover {
+    border-color: var(--secondary-color);
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(26, 43, 195, 0.1);
+}
+
+.price-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price-range input {
+    width: 100px;
+}
+
+.amenities-checkboxes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.checkbox-label:hover {
+    color: var(--secondary-color);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.btn-clear-filters {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-clear-filters:hover {
+    background: var(--light-bg);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+/* ===== Results Bar ===== */
+.results-bar {
+    background: var(--light-bg);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.results-info {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sort-options label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.sort-options select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.view-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-btn {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.view-btn.active {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.view-btn:hover:not(.active) {
+    background: var(--light-bg);
+}
+
+/* ===== Properties Grid ===== */
+.properties-section {
+    padding: 3rem 0 5rem;
+    min-height: 600px;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.properties-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.properties-list .property-card {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.properties-list .property-image {
+    height: 250px;
+}
+
+/* ===== Enhanced Property Card ===== */
+.property-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.property-image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-image img {
+    transform: scale(1.1);
+}
+
+.instant-booking-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.favorite-btn:hover {
+    background: var(--white);
+    transform: scale(1.1);
+}
+
+.favorite-btn i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.property-content {
+    padding: 1.5rem;
+}
+
+.property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.property-title {
+    font-size: 1.25rem;
+    margin: 0;
+    flex: 1;
+}
+
+.property-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.property-rating i {
+    color: var(--accent-color);
+}
+
+.property-rating .reviews {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.property-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.property-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.property-features i {
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+.property-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn-view-details {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-view-details:hover {
+    color: var(--primary-color);
+    gap: 0.75rem;
+}
+
+/* ===== No Results ===== */
+.no-results {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.no-results i {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.no-results p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* ===== Load More ===== */
+.load-more-section {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+#loadMoreBtn {
+    padding: 1rem 3rem;
+}
+
+/* ===== Newsletter Section ===== */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 4rem 0;
+    color: var(--white);
+    text-align: center;
+}
+
+.newsletter-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.newsletter-form .btn {
+    padding: 1rem 2rem;
+    white-space: nowrap;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+    .filter-section {
+        gap: 1rem;
+    }
+    
+    .properties-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .search-filters {
+        position: relative;
+        top: 0;
+    }
+    
+    .results-bar .container {
+        flex-wrap: wrap;
+    }
+    
+    .properties-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .properties-list .property-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .properties-hero .hero-title {
+        font-size: 2rem;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .amenities-checkboxes {
+        flex-direction: column;
+    }
+    
+    .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .property-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input,
+    .newsletter-form .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .sort-options,
+    .view-options {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

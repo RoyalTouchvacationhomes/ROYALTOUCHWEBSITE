@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our collection of luxury vacation homes in Dubai. Find your perfect stay with The Royal Touch Vacation Homes Rental.">
+    <meta name="keywords" content="Dubai vacation rentals, luxury properties, holiday homes, Airbnb alternatives Dubai">
+    <title>Properties - The Royal Touch Vacation Homes</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/properties.css">
+    <link rel="stylesheet" href="css/booking-system.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="The Royal Touch Logo" class="logo-img">
+                    <span class="logo-text">The Royal Touch</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link active">Properties</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#testimonials" class="nav-link">Reviews</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="#book" class="nav-link nav-cta">Book Now</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="properties-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Our Luxury Properties</h1>
+            <p class="hero-subtitle">Discover your perfect vacation home in Dubai</p>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="search-filters">
+        <div class="container">
+            <div class="search-bar">
+                <div class="search-input-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by property name or location...">
+                </div>
+                <button class="btn btn-primary" onclick="performSearch()">Search</button>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label>Location</label>
+                    <select id="locationFilter" onchange="filterProperties()">
+                        <option value="">All Locations</option>
+                        <option value="Dubai Marina">Dubai Marina</option>
+                        <option value="Palm Jumeirah">Palm Jumeirah</option>
+                        <option value="Downtown Dubai">Downtown Dubai</option>
+                        <option value="JBR">JBR</option>
+                        <option value="Business Bay">Business Bay</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Bedrooms</label>
+                    <select id="bedroomsFilter" onchange="filterProperties()">
+                        <option value="">Any</option>
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4">4 Bedrooms</option>
+                        <option value="5+">5+ Bedrooms</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Guests</label>
+                    <select id="guestsFilter" onchange="filterProperties()">
+                        <option value="">Any</option>
+                        <option value="2">Up to 2</option>
+                        <option value="4">Up to 4</option>
+                        <option value="6">Up to 6</option>
+                        <option value="8">Up to 8</option>
+                        <option value="10+">10+</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Price Range (AED/night)</label>
+                    <div class="price-range">
+                        <input type="number" id="minPrice" placeholder="Min" onchange="filterProperties()">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="Max" onchange="filterProperties()">
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Amenities</label>
+                    <div class="amenities-checkboxes">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="pool" onchange="filterProperties()">
+                            <span>Pool</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="gym" onchange="filterProperties()">
+                            <span>Gym</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="parking" onchange="filterProperties()">
+                            <span>Parking</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="beach" onchange="filterProperties()">
+                            <span>Beach Access</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="btn-clear-filters" onclick="clearFilters()">
+                    <i class="fas fa-times"></i> Clear Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Bar -->
+    <section class="results-bar">
+        <div class="container">
+            <div class="results-info">
+                <span id="resultsCount">Showing 12 properties</span>
+            </div>
+            <div class="sort-options">
+                <label>Sort by:</label>
+                <select id="sortBy" onchange="sortProperties()">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                    <option value="rating">Best Rated</option>
+                </select>
+            </div>
+            <div class="view-options">
+                <button class="view-btn active" onclick="setView('grid')">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" onclick="setView('list')">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties-section">
+        <div class="container">
+            <div id="propertiesGrid" class="properties-grid">
+                <!-- Properties will be dynamically loaded here -->
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No properties found</h3>
+                <p>Try adjusting your filters or search criteria</p>
+                <button class="btn btn-primary" onclick="clearFilters()">Clear All Filters</button>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button id="loadMoreBtn" class="btn btn-outline" onclick="loadMore()">
+                    Load More Properties
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get Exclusive Offers</h2>
+                <p>Subscribe to receive updates on new properties and special deals</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo.jpg" alt="The Royal Touch Logo">
+                        <h3>The Royal Touch</h3>
+                    </div>
+                    <p class="footer-desc">
+                        Premium vacation homes rental in Dubai. Licensed under Mohammed Bin Rashid Establishment 
+                        for SME Development. License No: 1321721
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">All Properties</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Property Types</h4>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=villa">Luxury Villas</a></li>
+                        <li><a href="properties.html?type=beach">Beach Houses</a></li>
+                        <li><a href="properties.html?type=apartment">City Apartments</a></li>
+                        <li><a href="properties.html?type=penthouse">Penthouses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@theroyaltouchhomes.com">info@theroyaltouchhomes.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+971542690903">+971 54 269 0903</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Office 1105-45, Business Bay, Dubai</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Royal Touch Vacation Homes Rental. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Booking System Modal -->
+    <div id="bookingSystemModal" class="booking-modal-overlay">
+        <div class="booking-modal-container">
+            <button class="booking-modal-close" onclick="closeBookingSystem()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="booking-modal-content">
+                <!-- Progress Steps -->
+                <div class="booking-steps">
+                    <div class="step active" data-step="1">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Select Property</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Choose Dates</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Guest Details</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <span class="step-number">4</span>
+                        <span class="step-label">Review & Submit</span>
+                    </div>
+                </div>
+                
+                <!-- Step 1: Property Selection -->
+                <div class="booking-step-content active" id="step1">
+                    <h2 class="booking-title">Select Your Property</h2>
+                    <p class="booking-subtitle">Choose from our luxury vacation homes</p>
+                    
+                    <div class="property-selection-grid">
+                        <!-- Properties will be dynamically loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Step 2: Date Selection -->
+                <div class="booking-step-content" id="step2">
+                    <h2 class="booking-title">Select Your Dates</h2>
+                    <p class="booking-subtitle">Choose check-in and check-out dates</p>
+                    
+                    <div class="date-selection-container">
+                        <div class="calendar-section">
+                            <div class="calendar-header">
+                                <button onclick="previousMonth()" class="calendar-nav">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h3 id="currentMonth">December 2024</h3>
+                                <button onclick="nextMonth()" class="calendar-nav">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendar-grid" id="calendar">
+                                <!-- Calendar will be generated here -->
+                            </div>
+                        </div>
+                        
+                        <div class="date-summary">
+                            <div class="selected-property-info">
+                                <img id="selectedPropertyImage" src="" alt="">
+                                <div>
+                                    <h4 id="selectedPropertyName">Property Name</h4>
+                                    <p id="selectedPropertyLocation">Location</p>
+                                </div>
+                            </div>
+                            
+                            <div class="date-inputs">
+                                <div class="date-input-group">
+                                    <label>Check-in</label>
+                                    <input type="text" id="checkInDate" readonly placeholder="Select date">
+                                </div>
+                                <div class="date-input-group">
+                                    <label>Check-out</label>
+                                    <input type="text" id="checkOutDate" readonly placeholder="Select date">
+                                </div>
+                            </div>
+                            
+                            <div class="guest-selector">
+                                <label>Number of Guests</label>
+                                <div class="guest-counter">
+                                    <button onclick="decrementGuests()" class="counter-btn">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span id="guestCount">2</span>
+                                    <button onclick="incrementGuests()" class="counter-btn">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <p class="guest-limit">Maximum: <span id="maxGuests">8</span> guests</p>
+                            </div>
+                            
+                            <div class="pricing-preview" id="pricingPreview" style="display: none;">
+                                <h4>Price Breakdown</h4>
+                                <div class="price-item">
+                                    <span>AED <span id="nightlyRate">0</span> × <span id="numNights">0</span> nights</span>
+                                    <span>AED <span id="subtotal">0</span></span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Cleaning fee</span>
+                                    <span>AED 350</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Service fee (12%)</span>
+                                    <span>AED <span id="serviceFee">0</span></span>
+                                </div>
+                                <div class="price-item total">
+                                    <span>Total</span>
+                                    <span>AED <span id="totalPrice">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Guest Information -->
+                <div class="booking-step-content" id="step3">
+                    <h2 class="booking-title">Guest Information</h2>
+                    <p class="booking-subtitle">Please provide your contact details</p>
+                    
+                    <form id="guestInfoForm" class="guest-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name *</label>
+                                <input type="text" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Country *</label>
+                                <select name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="UAE">United Arab Emirates</option>
+                                    <option value="USA">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="France">France</option>
+                                    <option value="India">India</option>
+                                    <option value="China">China</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Purpose of Visit</label>
+                                <select name="purpose">
+                                    <option value="Vacation">Vacation</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Family Visit">Family Visit</option>
+                                    <option value="Event">Event/Wedding</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label>Special Requests</label>
+                            <textarea name="specialRequests" rows="4" 
+                                      placeholder="Any special requirements, early check-in, airport transfer, etc."></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="agreeTerms" required>
+                                <span>I agree to the terms and conditions and cancellation policy *</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="subscribe">
+                                <span>Send me exclusive offers and updates</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Step 4: Review and Submit -->
+                <div class="booking-step-content" id="step4">
+                    <h2 class="booking-title">Review Your Booking</h2>
+                    <p class="booking-subtitle">Please confirm all details before submitting</p>
+                    
+                    <div class="booking-review">
+                        <div class="review-section">
+                            <h3>Property Details</h3>
+                            <div class="review-property">
+                                <img id="reviewPropertyImage" src="" alt="">
+                                <div>
+                                    <h4 id="reviewPropertyName">Property Name</h4>
+                                    <p id="reviewPropertyLocation">Location</p>
+                                    <p id="reviewPropertyFeatures">Features</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Booking Details</h3>
+                            <div class="review-details">
+                                <div class="detail-row">
+                                    <span>Check-in:</span>
+                                    <span id="reviewCheckIn">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Check-out:</span>
+                                    <span id="reviewCheckOut">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Nights:</span>
+                                    <span id="reviewNights">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Guests:</span>
+                                    <span id="reviewGuests">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Guest Information</h3>
+                            <div class="review-details">
+                                <div class="detail-row">
+                                    <span>Name:</span>
+                                    <span id="reviewGuestName">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Email:</span>
+                                    <span id="reviewEmail">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Phone:</span>
+                                    <span id="reviewPhone">-</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Country:</span>
+                                    <span id="reviewCountry">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Price Summary</h3>
+                            <div class="final-pricing">
+                                <div class="price-item">
+                                    <span>Accommodation</span>
+                                    <span>AED <span id="finalSubtotal">0</span></span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Cleaning fee</span>
+                                    <span>AED 350</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Service fee</span>
+                                    <span>AED <span id="finalServiceFee">0</span></span>
+                                </div>
+                                <div class="price-item total">
+                                    <span>Total Amount</span>
+                                    <span>AED <span id="finalTotal">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="booking-notes">
+                            <p><i class="fas fa-info-circle"></i> This is a booking request. You will receive a confirmation email within 24 hours.</p>
+                            <p><i class="fas fa-shield-alt"></i> Your information is secure and will only be used for this booking.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="booking-navigation">
+                    <button class="btn btn-outline" onclick="previousStep()" id="prevBtn" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="nextBtn" disabled>
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-primary" onclick="submitBooking()" id="submitBtn" style="display: none;">
+                        <i class="fas fa-paper-plane"></i> Submit Booking Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="bookingSuccessModal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Booking Request Sent!</h2>
+            <p>Thank you for your booking request. We've sent your inquiry to our team and you should receive a confirmation email shortly.</p>
+            <p class="booking-ref">Reference: <span id="bookingReference">-</span></p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/properties-data.js"></script>
+    <script src="js/properties.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/booking-system.js"></script>
+    
+    <!-- Newsletter Script -->
+    <script>
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Show success message
+            showNotification(`Thank you for subscribing with ${email}!`);
+            this.reset();
+        });
+        
+        // Show notification function (if not already in properties.js)
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

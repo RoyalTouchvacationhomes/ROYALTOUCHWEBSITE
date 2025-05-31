@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marina Skyline Villa - Luxury 4-bedroom vacation home in Dubai Marina. Experience premium accommodation with The Royal Touch Vacation Homes Rental.">
+    <meta name="keywords" content="Dubai Marina villa, luxury vacation rental, 4 bedroom villa Dubai, holiday home Dubai Marina">
+    <meta property="og:title" content="Marina Skyline Villa - The Royal Touch">
+    <meta property="og:description" content="Stunning 4-bedroom luxury villa in Dubai Marina with panoramic views. Book your perfect vacation home today.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/property-1.jpg">
+    
+    <title>Marina Skyline Villa - The Royal Touch Vacation Homes</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/property-details.css">
+    <link rel="stylesheet" href="css/booking-system.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="The Royal Touch Logo" class="logo-img">
+                    <span class="logo-text">The Royal Touch</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link active">Properties</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#testimonials" class="nav-link">Reviews</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="#book" class="nav-link nav-cta">Book Now</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="properties.html">Properties</a></li>
+                    <li class="breadcrumb-item active">Marina Skyline Villa</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Property Gallery -->
+    <section class="property-gallery">
+        <div class="gallery-container">
+            <div class="main-image">
+                <img src="images/property-1-main.jpg" alt="Marina Skyline Villa Main View" id="mainImage">
+                <div class="image-counter">
+                    <i class="fas fa-camera"></i>
+                    <span>1 / 12</span>
+                </div>
+                <button class="gallery-nav prev" onclick="changeImage(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav next" onclick="changeImage(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="thumbnail-strip">
+                <div class="thumbnail-container">
+                    <!-- Thumbnails will be dynamically loaded -->
+                </div>
+            </div>
+            <button class="view-all-photos" onclick="openLightbox()">
+                <i class="fas fa-th"></i> View All Photos
+            </button>
+        </div>
+    </section>
+
+    <!-- Property Details -->
+    <section class="property-details">
+        <div class="container">
+            <div class="details-grid">
+                <!-- Left Column - Main Details -->
+                <div class="details-main">
+                    <!-- Property Header -->
+                    <div class="property-header">
+                        <div class="header-content">
+                            <h1 class="property-title">Marina Skyline Villa</h1>
+                            <p class="property-subtitle">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Dubai Marina, Dubai, United Arab Emirates
+                            </p>
+                            <div class="property-badges">
+                                <span class="badge badge-featured">
+                                    <i class="fas fa-star"></i> Featured
+                                </span>
+                                <span class="badge badge-superhost">
+                                    <i class="fas fa-award"></i> Superhost
+                                </span>
+                                <span class="badge badge-verified">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </span>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <button class="action-btn" onclick="shareProperty()">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                            <button class="action-btn" onclick="saveProperty()">
+                                <i class="far fa-heart"></i> Save
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>8 Guests</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-bed"></i>
+                            <span>4 Bedrooms</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-bath"></i>
+                            <span>3 Bathrooms</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-home"></i>
+                            <span>350 m²</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="property-section">
+                        <h2 class="section-title">About This Property</h2>
+                        <div class="description-content">
+                            <p>
+                                Experience luxury living at its finest in this stunning 4-bedroom villa located in the heart 
+                                of Dubai Marina. This exquisite property offers breathtaking panoramic views of the marina 
+                                and the Arabian Gulf, creating an unforgettable backdrop for your Dubai vacation.
+                            </p>
+                            <p>
+                                The villa features contemporary design with high-end finishes throughout. The spacious 
+                                open-plan living area seamlessly connects to a private balcony, perfect for entertaining 
+                                or enjoying quiet moments with spectacular views. Each bedroom is thoughtfully designed 
+                                with comfort in mind, featuring premium bedding and en-suite bathrooms.
+                            </p>
+                            <p>
+                                Located in one of Dubai's most prestigious neighborhoods, you'll be within walking distance 
+                                of world-class dining, shopping, and entertainment options. The famous JBR Beach is just 
+                                minutes away, offering pristine sandy beaches and water activities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div class="property-section">
+                        <h2 class="section-title">Amenities</h2>
+                        <div class="amenities-grid">
+                            <!-- Amenities will be dynamically loaded -->
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="property-section">
+                        <h2 class="section-title">Location</h2>
+                        <div class="location-content">
+                            <div class="map-container">
+                                <div id="propertyMap" class="property-map"></div>
+                            </div>
+                            <div class="nearby-places">
+                                <h3>What's Nearby</h3>
+                                <div class="place-item">
+                                    <i class="fas fa-umbrella-beach"></i>
+                                    <div>
+                                        <h4>JBR Beach</h4>
+                                        <p>5 min walk</p>
+                                    </div>
+                                </div>
+                                <div class="place-item">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <div>
+                                        <h4>Dubai Marina Mall</h4>
+                                        <p>8 min walk</p>
+                                    </div>
+                                </div>
+                                <div class="place-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <div>
+                                        <h4>Marina Walk Restaurants</h4>
+                                        <p>3 min walk</p>
+                                    </div>
+                                </div>
+                                <div class="place-item">
+                                    <i class="fas fa-subway"></i>
+                                    <div>
+                                        <h4>DMCC Metro Station</h4>
+                                        <p>10 min walk</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- House Rules -->
+                    <div class="property-section">
+                        <h2 class="section-title">House Rules</h2>
+                        <div class="rules-grid">
+                            <div class="rule-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Check-in: 3:00 PM - 10:00 PM</h4>
+                                    <p>Flexible check-in available upon request</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Check-out: 11:00 AM</h4>
+                                    <p>Late check-out subject to availability</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Maximum <span id="maxGuestsRule">8</span> guests</h4>
+                                    <p>Additional guests may incur extra charges</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-smoking-ban"></i>
+                                <div>
+                                    <h4>No smoking</h4>
+                                    <p>Smoking allowed on balcony only</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-paw"></i>
+                                <div>
+                                    <h4>Pets allowed</h4>
+                                    <p>Small pets welcome with prior approval</p>
+                                </div>
+                            </div>
+                            <div class="rule-item">
+                                <i class="fas fa-music"></i>
+                                <div>
+                                    <h4>No parties</h4>
+                                    <p>Quiet hours from 10 PM to 8 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews -->
+                    <div class="property-section" id="reviews">
+                        <h2 class="section-title">Guest Reviews</h2>
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="overall-rating">
+                                    <span class="rating-number">4.9</span>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Based on <span id="totalReviews">127</span> reviews</p>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-category">
+                                        <span>Cleanliness</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 98%"></div>
+                                        </div>
+                                        <span>4.9</span>
+                                    </div>
+                                    <div class="rating-category">
+                                        <span>Communication</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 100%"></div>
+                                        </div>
+                                        <span>5.0</span>
+                                    </div>
+                                    <div class="rating-category">
+                                        <span>Location</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 96%"></div>
+                                        </div>
+                                        <span>4.8</span>
+                                    </div>
+                                    <div class="rating-category">
+                                        <span>Value</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 94%"></div>
+                                        </div>
+                                        <span>4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-list">
+                            <div class="review-card">
+                                <div class="reviewer-info">
+                                    <img src="images/reviewer-1.jpg" alt="Sarah">
+                                    <div>
+                                        <h4>Sarah Thompson</h4>
+                                        <p>November 2024</p>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>
+                                        Absolutely stunning property! The views are breathtaking and the villa is even 
+                                        better than the photos. Mohamed and his team were incredibly helpful throughout 
+                                        our stay. Highly recommend!
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="review-card">
+                                <div class="reviewer-info">
+                                    <img src="images/reviewer-2.jpg" alt="James">
+                                    <div>
+                                        <h4>James Wilson</h4>
+                                        <p>October 2024</p>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>
+                                        Perfect location in Dubai Marina. Walking distance to everything you need. 
+                                        The villa was spotless and had all the amenities we needed for a comfortable 
+                                        stay. Will definitely book again!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-outline" id="showAllReviewsBtn">Show All Reviews</button>
+                    </div>
+                </div>
+
+                <!-- Right Column - Booking Widget -->
+                <div class="booking-sidebar">
+                    <div class="booking-widget sticky">
+                        <div class="price-header">
+                            <div class="price-amount">
+                                <span class="currency">AED</span>
+                                <span class="amount">2,500</span>
+                                <span class="period">/night</span>
+                            </div>
+                            <div class="rating-mini">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <a href="#reviews">(<span id="reviewCount">127</span> reviews)</a>
+                            </div>
+                        </div>
+                        
+                        <form id="bookingInquiryForm" class="booking-form">
+                            <div class="date-inputs">
+                                <div class="form-group">
+                                    <label>Check-in</label>
+                                    <input type="date" name="checkin" id="checkinDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Check-out</label>
+                                    <input type="date" name="checkout" id="checkoutDate" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Guests</label>
+                                <select name="guests" id="guestsSelect" required>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2" selected>2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="7">7 Guests</option>
+                                    <option value="8">8 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="price-breakdown" id="priceBreakdown" style="display: none;">
+                                <div class="price-row">
+                                    <span>AED <span id="nightlyPrice">2,500</span> × <span id="nights">0</span> nights</span>
+                                    <span>AED <span id="subtotal">0</span></span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Cleaning fee</span>
+                                    <span>AED 350</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Service fee</span>
+                                    <span>AED <span id="serviceFee">0</span></span>
+                                </div>
+                                <div class="price-row total">
+                                    <span>Total</span>
+                                    <span>AED <span id="totalPrice">0</span></span>
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary btn-book" onclick="openPropertyBookingModal()">
+                                Request to Book
+                            </button>
+                            
+                            <p class="booking-note">
+                                <i class="fas fa-info-circle"></i>
+                                You won't be charged yet. Submit your booking request and we'll confirm availability.
+                            </p>
+                            
+                            <p class="min-stay-note" id="minStayNote" style="display: none;">
+                                <i class="fas fa-info-circle"></i> Minimum stay: <span id="minStayNights">2</span> nights
+                            </p>
+                        </form>
+                        
+                        <div class="widget-footer">
+                            <a href="#" class="report-link">
+                                <i class="fas fa-flag"></i> Report this listing
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Host Info -->
+                    <div class="host-widget">
+                        <h3>Hosted by The Royal Touch</h3>
+                        <div class="host-info">
+                            <img src="images/host-avatar.jpg" alt="The Royal Touch">
+                            <div>
+                                <h4>The Royal Touch Team</h4>
+                                <p>Superhost · 5 years hosting</p>
+                            </div>
+                        </div>
+                        <div class="host-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span><span id="hostReviews">127</span> Reviews</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Verified</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>Fast response</span>
+                            </div>
+                        </div>
+                        <p class="host-description">
+                            Licensed vacation rental company (License No: 1321721) providing premium 
+                            accommodations in Dubai. Available 24/7 for our guests.
+                        </p>
+                        <a href="mailto:info@theroyaltouchhomes.com" class="btn btn-outline">
+                            Contact Host
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Properties -->
+    <section class="similar-properties">
+        <div class="container">
+            <h2 class="section-title">Similar Properties</h2>
+            <div class="properties-carousel" id="similarProperties">
+                <!-- Similar properties will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Booking Modal (Specific to this property) -->
+    <div id="propertyBookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePropertyBookingModal()">&times;</span>
+            <h2>Complete Your Booking Request</h2>
+            <p>Fill in your details below and we'll get back to you within 24 hours.</p>
+            
+            <form id="propertyBookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nationality</label>
+                        <input type="text" name="nationality">
+                    </div>
+                    <div class="form-group">
+                        <label>Purpose of Stay</label>
+                        <select name="purpose">
+                            <option>Vacation</option>
+                            <option>Business</option>
+                            <option>Family Visit</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Special Requests or Requirements</label>
+                    <textarea name="specialRequests" rows="4" placeholder="E.g., early check-in, airport transfer, dietary requirements"></textarea>
+                </div>
+                
+                <input type="hidden" name="property" id="bookingPropertyName" value="Marina Skyline Villa">
+                <input type="hidden" name="propertyId" id="bookingPropertyId" value="1">
+                <input type="hidden" id="bookingDates" name="dates" value="">
+                <input type="hidden" id="bookingGuests" name="guestCount" value="">
+                <input type="hidden" id="bookingTotal" name="totalPrice" value="">
+                
+                <div class="booking-summary">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-details">
+                        <p><strong>Property:</strong> <span id="summaryProperty">Marina Skyline Villa</span></p>
+                        <p><strong>Dates:</strong> <span id="summaryDates">--</span></p>
+                        <p><strong>Guests:</strong> <span id="summaryGuests">--</span></p>
+                        <p><strong>Total Price:</strong> AED <span id="summaryPrice">--</span></p>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="closePropertyBookingModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Send Booking Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lightbox Gallery -->
+    <div id="galleryLightbox" class="lightbox-overlay">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <div class="lightbox-grid" id="lightboxGallery">
+                <!-- Gallery images will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo.jpg" alt="The Royal Touch Logo">
+                        <h3>The Royal Touch</h3>
+                    </div>
+                    <p class="footer-desc">
+                        Premium vacation homes rental in Dubai. Licensed under Mohammed Bin Rashid Establishment 
+                        for SME Development. License No: 1321721
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@theroyaltouchhomes.com">info@theroyaltouchhomes.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+971542690903">+971 54 269 0903</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Office 1105-45, Business Bay, Dubai</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Royal Touch Vacation Homes Rental. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Main Booking System Modal (for navigation Book Now button) -->
+    <div id="bookingSystemModal" class="booking-modal-overlay">
+        <!-- Same booking system modal content as in other pages -->
+        <div class="booking-modal-container">
+            <button class="booking-modal-close" onclick="closeBookingSystem()">
+                <i class="fas fa-times"></i>
+            </button>
+            <!-- ... rest of booking system modal content ... -->
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="bookingSuccessModal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Booking Request Sent!</h2>
+            <p>Thank you for your booking request. We've sent your inquiry to our team and you should receive a confirmation email shortly.</p>
+            <p class="booking-ref">Reference: <span id="bookingReference">-</span></p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/properties-data.js"></script>
+    <script src="js/property-details-dynamic.js"></script>
+    <script src="js/property-details.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/booking-system.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    
+    <!-- Property-specific Scripts -->
+    <script>
+        // Initialize map (placeholder for Google Maps)
+        function initMap() {
+            // This would be replaced with actual Google Maps implementation
+            console.log('Map initialized for property at coordinates:', currentProperty?.coordinates);
+        }
+        
+        // Property Booking Modal Functions
+        function openPropertyBookingModal() {
+            const checkinDate = document.getElementById('checkinDate').value;
+            const checkoutDate = document.getElementById('checkoutDate').value;
+            const guests = document.getElementById('guestsSelect').value;
+            
+            if (!checkinDate || !checkoutDate) {
+                showNotification('Please select check-in and check-out dates');
+                return;
+            }
+            
+            // Update summary
+            const checkin = new Date(checkinDate);
+            const checkout = new Date(checkoutDate);
+            const nights = Math.floor((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('summaryDates').textContent = 
+                `${formatDate(checkin)} - ${formatDate(checkout)} (${nights} nights)`;
+            document.getElementById('summaryGuests').textContent = 
+                guests + ' ' + (guests === '1' ? 'Guest' : 'Guests');
+            document.getElementById('summaryPrice').textContent = 
+                document.getElementById('totalPrice').textContent;
+            
+            // Store booking data
+            document.getElementById('bookingDates').value = `${checkinDate} to ${checkoutDate}`;
+            document.getElementById('bookingGuests').value = guests;
+            document.getElementById('bookingTotal').value = document.getElementById('totalPrice').textContent;
+            
+            // Show modal
+            document.getElementById('propertyBookingModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePropertyBookingModal() {
+            document.getElementById('propertyBookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function formatDate(date) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+        
+        // Handle property booking form submission
+        document.getElementById('propertyBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Generate booking reference
+            const bookingRef = 'TRT' + Date.now().toString().slice(-8);
+            
+            // Create email body
+            const emailBody = `
+BOOKING REQUEST - ${bookingRef}
+
+PROPERTY DETAILS:
+- Property: ${data.property}
+- Property ID: ${data.propertyId}
+
+BOOKING DETAILS:
+- Dates: ${data.dates}
+- Number of Guests: ${data.guestCount}
+- Total Price: AED ${data.totalPrice}
+
+GUEST INFORMATION:
+- Name: ${data.firstName} ${data.lastName}
+- Email: ${data.email}
+- Phone: ${data.phone}
+- Nationality: ${data.nationality || 'Not specified'}
+- Purpose of Stay: ${data.purpose}
+
+SPECIAL REQUESTS:
+${data.specialRequests || 'None'}
+
+---
+This booking was submitted through theroyaltouchhomes.com
+Booking Reference: ${bookingRef}
+Submission Time: ${new Date().toLocaleString()}
+            `;
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Booking Request - ${data.property} - ${bookingRef}`);
+            const body = encodeURIComponent(emailBody);
+            window.location.href = `mailto:info@theroyaltouchhomes.com?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            document.getElementById('bookingReference').textContent = bookingRef;
+            closePropertyBookingModal();
+            document.getElementById('bookingSuccessModal').classList.add('active');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Close success modal
+        function closeSuccessModal() {
+            document.getElementById('bookingSuccessModal').classList.remove('active');
+        }
+        
+        // Calculate price for property booking
+        document.getElementById('checkinDate').addEventListener('change', calculatePropertyPrice);
+        document.getElementById('checkoutDate').addEventListener('change', calculatePropertyPrice);
+        document.getElementById('guestsSelect').addEventListener('change', calculatePropertyPrice);
+        
+        function calculatePropertyPrice() {
+            const checkinDate = document.getElementById('checkinDate').value;
+            const checkoutDate = document.getElementById('checkoutDate').value;
+            
+            if (checkinDate && checkoutDate && currentProperty) {
+                const checkin = new Date(checkinDate);
+                const checkout = new Date(checkoutDate);
+                const nights = Math.floor((checkout - checkin) / (1000 * 60 * 60 * 24));
+                
+                if (nights > 0) {
+                    const pricePerNight = currentProperty.price;
+                    const cleaningFee = 350;
+                    const subtotal = pricePerNight * nights;
+                    const serviceFee = Math.round(subtotal * 0.12);
+                    const total = subtotal + cleaningFee + serviceFee;
+                    
+                    // Update display
+                    document.getElementById('nights').textContent = nights;
+                    document.getElementById('subtotal').textContent = subtotal.toLocaleString();
+                    document.getElementById('serviceFee').textContent = serviceFee.toLocaleString();
+                    document.getElementById('totalPrice').textContent = total.toLocaleString();
+                    
+                    // Show price breakdown
+                    document.getElementById('priceBreakdown').style.display = 'block';
+                    
+                    // Check minimum stay
+                    if (nights < currentProperty.minimumStay) {
+                        showNotification(`Minimum stay is ${currentProperty.minimumStay} nights`);
+                        document.getElementById('checkoutDate').value = '';
+                        document.getElementById('priceBreakdown').style.display = 'none';
+                    }
+                } else {
+                    document.getElementById('priceBreakdown').style.display = 'none';
+                }
+            }
+        }
+        
+        // Set minimum date for check-in
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkinDate').setAttribute('min', today);
+        
+        // Update checkout min date when checkin changes
+        document.getElementById('checkinDate').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            const minCheckout = new Date(checkinDate);
+            minCheckout.setDate(minCheckout.getDate() + 1);
+            document.getElementById('checkoutDate').setAttribute('min', minCheckout.toISOString().split('T')[0]);
+        });
+    </script>
+</body>
+</html>
